@@ -36,3 +36,5 @@ app.get('/about', (req, res) => {
 const filePath = path.join(__dirname, '../views', 'about.html');
 res.sendFile(filePath);
 });
+
+module.exports = app;
