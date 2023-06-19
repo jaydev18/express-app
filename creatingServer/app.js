@@ -24,7 +24,7 @@ const path = require('path');
 const app = express();
 
 // Listen for requests
-app.listen(3000);
+app.listen(4000);
 
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, '../views', 'index.html');
@@ -37,4 +37,13 @@ const filePath = path.join(__dirname, '../views', 'about.html');
 res.sendFile(filePath);
 });
 
+//redirect
+app.get('/about-us', (req, res)=>{
+    res.redirect('/about')
+})
+//404 page
+app.use((req, res)=>{
+const filePath = path.join(__dirname, '../views', '404.html');
+res.status(404).sendFile(filePath);
+})
 module.exports = app;
